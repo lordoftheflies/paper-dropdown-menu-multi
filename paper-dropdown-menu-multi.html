@@ -58,7 +58,7 @@
                 return {
                     label: {type: String},
                     required: {type: Boolean},
-                    disabled: {type: Boolean, value: false},
+                    disabled: {type: Boolean, notify: true, value: false},
                     selections: {type: Array, observer: '_selectionChanged'},
                     value: {type: Array},
                     _value: {type: Array, value: []},
