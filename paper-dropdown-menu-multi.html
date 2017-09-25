@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../paper-checkbox/paper-checkbox.html">
 <link rel="import" href="../paper-styles/default-theme.html">
 <link rel="import" href="../iron-selector/iron-selector.html">
@@ -7,7 +8,12 @@
 <dom-module id="paper-dropdown-menu-multi">
 	<!-- Optional shadow DOM template -->
 	<template>
-		<style>
+		<style include="iron-flex">
+			:host {
+				@apply --layout-horizontal;
+				
+			}
+			
 			paper-checkbox{
 				padding-left:15px;
 				padding-right:15px;
@@ -17,17 +23,18 @@
 			#dummy{
 				display:none;
 			}
+			
 		</style>
 
 		<!-- shadow DOM for your element -->
-		<paper-dropdown-menu label="[[label]]" id="dropdownMenu" required='[[required]]' on-paper-dropdown-close='_closingWindow' on-paper-dropdown-open='_openingWindow' value={{value}}>
+		<paper-dropdown-menu label="[[label]]" id="dropdownMenu" class="flex" disabled="[[disabled]]" required='[[required]]' on-paper-dropdown-close='_closingWindow' on-paper-dropdown-open='_openingWindow' value={{value}}>
 			<div class="dropdown-content" slot="dropdown-content">
-			<template is="dom-repeat" items="[[selections]]" >
-				<div><paper-checkbox on-change='_updateValue'>[[_computeDisplayName(item)]]</paper-checkbox></div>
-			</template>
-			<iron-selector id="selected">
-				<div id="dummy"></div>
-			</iron-selector>
+				<template is="dom-repeat" items="[[selections]]" >
+					<div><paper-checkbox on-change='_updateValue'>[[_computeDisplayName(item)]]</paper-checkbox></div>
+				</template>
+				<iron-selector id="selected">
+					<div id="dummy"></div>
+				</iron-selector>
 			</div>
 		</paper-dropdown-menu>
 	</template>
@@ -44,6 +51,7 @@
 			return {
 				label:{type:String},
 				required:{type:Boolean},
+				disabled:{type:Boolean, value: false},
 				selections:{type:Array,observer:'_selectionChanged'},
 				value:{type:Array},
 				_value:{type:Array, value:[]},
