@@ -12,7 +12,6 @@
         <style include="iron-flex">
             :host {
                 display: inline-block;
-                @apply --layout-horizontal;
             }
 
             paper-checkbox {
@@ -29,7 +28,7 @@
         </style>
 
         <!-- shadow DOM for your element -->
-        <paper-dropdown-menu label="[[label]]" id="dropdownMenu" class="flex" disabled="[[disabled]]"
+        <paper-dropdown-menu label="[[label]]" id="dropdownMenu" style="width: 100%;" disabled="[[disabled]]"
                              required='[[required]]' on-paper-dropdown-close='_closingWindow'
                              on-paper-dropdown-open='_openingWindow' value={{value}}>
             <div class="dropdown-content" slot="dropdown-content">

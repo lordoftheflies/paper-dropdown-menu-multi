@@ -13,11 +13,12 @@
 
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../iron-flex-layout/iron-flex-layout-classes.html">
 
     <link rel="import" href="../paper-dropdown-menu-multi.html">
 
     <custom-style>
-        <style is="custom-style" include="demo-pages-shared-styles">
+        <style is="custom-style" include="demo-pages-shared-styles iron-flex">
             body {
 
                 background-color: #fafafa;
@@ -38,8 +39,34 @@
             <paper-dropdown-menu-multi
                     label="Names"
                     selections='["Sarah","Tessa","Hitaru"]'
-                    maxDisplay=3>
+                    max-display=3>
             </paper-dropdown-menu-multi>
+        </template>
+    </demo-snippet>
+
+    <h4>Basic usage with objects</h4>
+    <demo-snippet>
+        <template>
+            <paper-dropdown-menu-multi
+                    label="Names"
+                    selections='[{"name": "Sarah"}, {"name": "Tessa"}, {"name": "Hitaru"}]'
+                    max-display=3
+                    item-label-attr="name">
+            </paper-dropdown-menu-multi>
+        </template>
+    </demo-snippet>
+
+    <h4>Flexible</h4>
+    <demo-snippet>
+        <template>
+            <div class="layout horizontal">
+                <paper-dropdown-menu-multi
+                        label="Names"
+                        selections='["Sarah","Tessa","Hitaru"]'
+                        max-display=3
+                        class="layout horizontal flex">
+                </paper-dropdown-menu-multi>
+            </div>
         </template>
     </demo-snippet>
 
@@ -49,7 +76,7 @@
             <paper-dropdown-menu-multi
                     label="Names"
                     selections='["Sarah","Tessa","Hitaru"]'
-                    maxDisplay=3
+                    max-display=3
                     disabled>
             </paper-dropdown-menu-multi>
         </template>
