@@ -23,7 +23,7 @@
 		<paper-dropdown-menu label="[[label]]" id="dropdownMenu" required='[[required]]' on-paper-dropdown-close='_closingWindow' on-paper-dropdown-open='_openingWindow' value={{value}}>
 			<div class="dropdown-content" slot="dropdown-content">
 			<template is="dom-repeat" items="[[selections]]" >
-				<div><paper-checkbox on-change='_updateValue'>[[item]]</paper-checkbox></div>
+				<div><paper-checkbox on-change='_updateValue'>[[_computeDisplayName(item)]]</paper-checkbox></div>
 			</template>
 			<iron-selector id="selected">
 				<div id="dummy"></div>
@@ -48,6 +48,7 @@
 				value:{type:Array},
 				_value:{type:Array, value:[]},
 				maxDisplay:{type: Number, value:5}
+				itemLabel: {type: String}
 				}
 		}
 		_selectionChanged(){
@@ -75,6 +76,13 @@
 			this.shadowRoot.querySelectorAll('paper-checkbox').forEach(item =>{
 				if(item.checked){that._value.push(item.textContent)};
 			})
+		}
+		_computeDisplayName(item) {
+			if (this.get('itemLabel')) {
+				return item[this.get('itemLabel')];
+			} else {
+				return item;
+			}
 		}
 	}	// Register the x-custom element with the browser
 	customElements.define(PaperDropDownMenuMulti.is, PaperDropDownMenuMulti);
