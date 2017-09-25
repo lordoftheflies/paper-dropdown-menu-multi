@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+    <title>paper-dropdown-menu-multi</title>
+
+    <link rel="import" href="../../github-fork-ribbon/github-fork-ribbon.html">
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-animations-js/web-animations-next-lite.min.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+
+    <link rel="import" href="../paper-dropdown-menu-multi.html">
+
+    <custom-style>
+        <style is="custom-style" include="demo-pages-shared-styles">
+            body {
+
+                background-color: #fafafa;
+            }
+        </style>
+    </custom-style>
+
+</head>
+
+<body>
+<div class="vertical-section-container centered">
+    <h3>Examples of
+        <code>&lt;paper-dropdown-menu-multi&gt;</code>:</h3>
+
+    <h4>Basic usage</h4>
+    <demo-snippet>
+        <template>
+            <paper-dropdown-menu-multi
+                    label="Names"
+                    selections='["Sarah","Tessa","Hitaru"]'
+                    maxDisplay=3>
+            </paper-dropdown-menu-multi>
+        </template>
+    </demo-snippet>
+
+    <h4>Can be disable</h4>
+    <demo-snippet>
+        <template>
+            <paper-dropdown-menu-multi
+                    label="Names"
+                    selections='["Sarah","Tessa","Hitaru"]'
+                    maxDisplay=3
+                    disabled>
+            </paper-dropdown-menu-multi>
+        </template>
+    </demo-snippet>
+</div>
+
+<github-fork-ribbon username="lordoftheflies" repository="paper-dropdown-menu-multi"
+                    position="right-bottom"></github-fork-ribbon>
+
+</body>
+
+</html>
