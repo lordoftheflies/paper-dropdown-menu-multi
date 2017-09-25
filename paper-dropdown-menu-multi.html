@@ -47,8 +47,8 @@
 				selections:{type:Array,observer:'_selectionChanged'},
 				value:{type:Array},
 				_value:{type:Array, value:[]},
-				maxDisplay:{type: Number, value:5}
-				itemLabel: {type: String}
+				maxDisplay:{type: Number, value:5},
+				itemLabelAttr: {type: String}
 				}
 		}
 		_selectionChanged(){
@@ -78,8 +78,8 @@
 			})
 		}
 		_computeDisplayName(item) {
-			if (this.get('itemLabel')) {
-				return item[this.get('itemLabel')];
+			if (this.get('itemLabelAttr')) {
+				return item[this.get('itemLabelAttr')];
 			} else {
 				return item;
 			}
