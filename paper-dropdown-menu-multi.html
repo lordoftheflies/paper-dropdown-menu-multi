@@ -83,7 +83,7 @@
             }
 
             _closingWindow() {
-                this.$.dummy.textContent = (this._value.length <= this.maxDisplay) ? this._value.join(',') : "${this._value.length} selected";
+                this.$.dummy.textContent = (this._value.length <= this.maxDisplay) ? this._value.join(', ') : "${this._value.length} selected";
                 this.$.selected.selected = '0';
                 this.value = this._value;
                 this.dispatchEvent(new CustomEvent('value-changed', {detail: this.value}));
